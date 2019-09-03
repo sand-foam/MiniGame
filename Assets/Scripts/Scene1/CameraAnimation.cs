@@ -39,6 +39,8 @@ namespace MiniGame
             GameObject.Find("GroundInDoor").GetComponent<Collider2D>().enabled = true;
             GameObject.Find("SmokePaticle").transform.GetChild(0).gameObject.SetActive(true);
             GameObject.Find("SmokePaticle").transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Play();
+            GameObject.Find("SmokePaticle").transform.GetChild(1).gameObject.SetActive(true);
+            GameObject.Find("SmokePaticle").transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().Play();
             //Rigidbody2D rigidbody2D = boy.GetComponent<Rigidbody2D>();
             //rigidbody2D.position = new Vector3(rigidbody2D.position.x, 0.7f, 10);
 
