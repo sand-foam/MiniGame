@@ -15,7 +15,17 @@ public class PaperEffect : PostEffectsBase
         }
     }
 
+    public Material material2
+    {
+        get
+        {
+            paperMaterial = CheckShaderAndCreateMaterial(paperShader, paperMaterial);
+            return paperMaterial;
+        }
+    }
+
     public Texture2D blendTex;
+    public Texture2D blendTex2;
     [Range(0.0f, 1.0f)]
     public float mixed = 0.6f;
 
@@ -25,7 +35,7 @@ public class PaperEffect : PostEffectsBase
         {
             material.SetTexture("_BlendTex", blendTex);
             material.SetFloat("_Mixed", mixed);
-
+            material2.SetTexture("_BlendTex2", blendTex2);
             Graphics.Blit(src, dest, material);
         }
         else
