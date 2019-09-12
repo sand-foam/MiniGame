@@ -8,8 +8,8 @@ Shader "Custom/PaththoughEffect"
 		_NoiseTex("Noise", 2D) = "black"{}
 	}
 
-		CGINCLUDE
-		uniform sampler2D _MainTex;
+	CGINCLUDE
+	uniform sampler2D _MainTex;
 	uniform sampler2D _NoiseTex;
 	uniform float _DistortFactor;	//扭曲强度
 	uniform float4 _DistortCenter;	//扭曲中心点xy值（0-1）屏幕空间
