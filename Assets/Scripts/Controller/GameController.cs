@@ -495,8 +495,11 @@ namespace MiniGame
             if (stageProgress[level] < stage)
             {
                 stageProgress[level] = stage;
-                gamingUI.SettipIndexes(stage);
+                Debug.Log("碎片更新到" + stage);
+                //这里调用重载的设置函数，使对联出现，只出现对应index的对联一次
+                gamingUI.SettipIndexes(stage, true);
             }
+            Debug.Log("碎片展示!!!" + stage);
             gamingUI.ShowForTime(4);
             WriteLevelProgressToFile();
         }

@@ -19,7 +19,7 @@ namespace MiniGame
         //提示画组
         private CanvasGroup m_tipImgsGroup;
         //提示语句
-        private CanvasGroup m_tipWordsGroup;
+        private GameObject m_tipWordsGroup;
         //提示画编号组
         private bool[] m_tipIndexes = new bool[5];
         //提示画
@@ -48,7 +48,7 @@ namespace MiniGame
         private void Start()
         {
             CanvasGroup cg = GameObject.Find("TipImgs").GetComponent<CanvasGroup>();
-            CanvasGroup cgWords = GameObject.Find("TipWords").GetComponent<CanvasGroup>();
+            GameObject cgWords = GameObject.Find("TipWords");
             cg.alpha = 1.0f;
             cg.alpha = 1.0f;
             SettipImgsGroup(cg, cgWords);
@@ -233,7 +233,7 @@ namespace MiniGame
         /// 根据当前是第几关加载不同的画组预制件
         /// </summary>
         /// <param name="tipImgs">画组预制件</param>
-        public void SettipImgsGroup(CanvasGroup tipImgs, CanvasGroup tipWords)
+        public void SettipImgsGroup(CanvasGroup tipImgs, GameObject tipWords)
         {
             this.m_tipImgsGroup = tipImgs;
             this.m_tipWordsGroup = tipWords;
@@ -250,13 +250,30 @@ namespace MiniGame
         /// <param name="index">已解谜机关编号</param>
         public void SettipIndexes(int index)
         {
+            Debug.Log("设置画编号" + index);
+            for (int i = 0; i < index;)
+            {
+                this.m_tipIndexes[i] = true;
+                ++i;
+            }
+        }
+
+        /// <summary>
+        /// 重载函数，与上一个不同的是这个函数提供给碎片更新时调用，出于兼容对联且对联只出现一次的需求
+        /// 根据当前该关卡已解谜机关编号设置提示画编号
+        /// 对联考虑在这里被调用，只加载一次，这个是靠GameController对每个碎片收集只调用其一次实现
+        /// </summary>
+        /// <param name="index">已解谜机关编号</param>
+        public void SettipIndexes(int index, bool flag)
+        {
+            Debug.Log("设置画编号" + index);
             for (int i = 0; i < index;)
             {
                 this.m_tipIndexes[i] = true;
                 ++i;
             }
             Debug.Log("开始！！！");
-            WordsShowOnlyOnce(5, index);
+            WordsShowOnlyOnce(5.0f, index);
         }
 
         /// <summary>
@@ -267,16 +284,22 @@ namespace MiniGame
         public void WordsShowOnlyOnce(float t, int index)
         {
             StartCoroutine(WordsShowTimeCoroutine(t,index));
+            Debug.Log("对联编号" + index + "展示" + t + "秒");
         }
         IEnumerator WordsShowTimeCoroutine(float t, int index)
         {
             Transform outTemp;
-            m_tipWordsDictionary.TryGetValue(index, out outTemp);
+            m_tipWordsDictionary.TryGetValue(index - 1, out outTemp);
             outTemp.gameObject.GetComponent<Image>().color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+            outTemp.GetChild(0).GetComponent<Image>().color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+            Debug.Log("获取到子对联句" + outTemp.gameObject.GetComponentInChildren<Image>().name);
+            Debug.Log("提示语" + (index - 1) + "透明度变为" + outTemp.gameObject.GetComponent<Image>().color + outTemp.name);
             yield return new WaitForSeconds(t);//运行到这，暂停t秒
 
             //t秒后，继续运行下面代码
             outTemp.gameObject.GetComponent<Image>().color = new Vector4(1.0f, 1.0f, 1.0f, 0.0f);
+            outTemp.GetChild(0).GetComponent<Image>().color = new Vector4(1.0f, 1.0f, 1.0f, 0.0f);
+            Debug.Log("提示语" + index + "透明度变回0");
         }
 
         /// <summary>
@@ -295,6 +318,7 @@ namespace MiniGame
             foreach (Transform child in m_tipWordsGroup.transform)
             {
                 m_tipWordsDictionary.Add(j, child);
+                Debug.Log("第" + j + "句提示语" + child.name);
                 ++j;
             }
         }
