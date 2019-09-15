@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9e980bd6e84534983e76a47113108b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_magpieAudioClip: {fileID: 0}
+  boatAudio: {fileID: 0}
   scaleUnit: 1
   threshold: {x: 3, y: 3, z: 1}
 --- !u!1 &8073361396974858532
@@ -870,6 +870,7 @@ GameObject:
   - component: {fileID: 8073361397938838103}
   - component: {fileID: 8073361397938838100}
   - component: {fileID: 8073361397938838088}
+  - component: {fileID: 8603488804286057373}
   m_Layer: 0
   m_Name: Willow
   m_TagString: Untagged
@@ -1040,6 +1041,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8603488804286057373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8073361397938838101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1229ba3a36fe62540bb7335a02f6413d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8073361397945228567
 GameObject:
   m_ObjectHideFlags: 0
