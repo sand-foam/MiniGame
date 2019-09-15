@@ -18,10 +18,14 @@ namespace MiniGame
         //public int currLevel;
         //提示画组
         private CanvasGroup m_tipImgsGroup;
+        //提示语句
+        private CanvasGroup m_tipWordsGroup;
         //提示画编号组
         private bool[] m_tipIndexes = new bool[5];
         //提示画
         private Dictionary<int, Transform> m_tipImgsDictionary = new Dictionary<int, Transform>();
+        //提示语
+        private Dictionary<int, Transform> m_tipWordsDictionary = new Dictionary<int, Transform>();
 
 
         /*设置UI*/
@@ -44,8 +48,10 @@ namespace MiniGame
         private void Start()
         {
             CanvasGroup cg = GameObject.Find("TipImgs").GetComponent<CanvasGroup>();
+            CanvasGroup cgWords = GameObject.Find("TipWords").GetComponent<CanvasGroup>();
             cg.alpha = 1.0f;
-            SettipImgsGroup(cg);
+            cg.alpha = 1.0f;
+            SettipImgsGroup(cg, cgWords);
         }
 
         private void Update()
@@ -223,7 +229,23 @@ namespace MiniGame
         }
 
         /// <summary>
+        /// 一个重载的函数，用于添加对联，新版本
+        /// 根据当前是第几关加载不同的画组预制件
+        /// </summary>
+        /// <param name="tipImgs">画组预制件</param>
+        public void SettipImgsGroup(CanvasGroup tipImgs, CanvasGroup tipWords)
+        {
+            this.m_tipImgsGroup = tipImgs;
+            this.m_tipWordsGroup = tipWords;
+            this.m_tipImgsGroup.transform.SetParent(promptWindow.transform);
+            this.m_tipWordsGroup.transform.SetParent(promptWindow.transform);
+            Debug.Log("画组/预制件" + tipImgs.name);
+            AddTipImgs();
+        }
+
+        /// <summary>
         /// 根据当前该关卡已解谜机关编号设置提示画编号
+        /// 对联考虑在这里被调用，只加载一次，这个是靠GameController对每个碎片收集只调用其一次实现
         /// </summary>
         /// <param name="index">已解谜机关编号</param>
         public void SettipIndexes(int index)
@@ -233,10 +255,32 @@ namespace MiniGame
                 this.m_tipIndexes[i] = true;
                 ++i;
             }
+            Debug.Log("开始！！！");
+            WordsShowOnlyOnce(5, index);
         }
 
         /// <summary>
-        /// 根据画组预制件加载画
+        /// 对联加在这里
+        /// </summary>
+        /// <param name="t">延时秒数</param>
+        /// <returns></returns>
+        public void WordsShowOnlyOnce(float t, int index)
+        {
+            StartCoroutine(WordsShowTimeCoroutine(t,index));
+        }
+        IEnumerator WordsShowTimeCoroutine(float t, int index)
+        {
+            Transform outTemp;
+            m_tipWordsDictionary.TryGetValue(index, out outTemp);
+            outTemp.gameObject.GetComponent<Image>().color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+            yield return new WaitForSeconds(t);//运行到这，暂停t秒
+
+            //t秒后，继续运行下面代码
+            outTemp.gameObject.GetComponent<Image>().color = new Vector4(1.0f, 1.0f, 1.0f, 0.0f);
+        }
+
+        /// <summary>
+        /// 根据画组预制件加载画，和提示语
         /// </summary>
         private void AddTipImgs()
         {
@@ -246,6 +290,12 @@ namespace MiniGame
             {
                 m_tipImgsDictionary.Add(i, child);
                 ++i;
+            }
+            int j = 0;
+            foreach (Transform child in m_tipWordsGroup.transform)
+            {
+                m_tipWordsDictionary.Add(j, child);
+                ++j;
             }
         }
     }
