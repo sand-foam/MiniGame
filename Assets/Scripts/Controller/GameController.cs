@@ -59,11 +59,12 @@ namespace MiniGame
 
             //所有关卡名字(包括开始关卡)
             allLevelName.Add("Start");//0
-            allLevelName.Add("Level0");//1
-            allLevelName.Add("Level1");//2
-            allLevelName.Add("Level2");//3
-            allLevelName.Add("Level3");//4
-            allLevelName.Add("End");//5
+            allLevelName.Add("CG");//1
+            allLevelName.Add("Level0");//2
+            allLevelName.Add("Level1");//3
+            allLevelName.Add("Level2");//4
+            allLevelName.Add("Level3");//5
+            allLevelName.Add("End");//6
             //highestProgress = 1;
 
 
@@ -79,13 +80,13 @@ namespace MiniGame
         private void Start()
         {
             //关卡初始化设置
-            if (!m_CurrentZoneScene.name.Equals("Start")&& !m_CurrentZoneScene.name.Equals("End"))
+            if (!m_CurrentZoneScene.name.Equals("Start")&& !m_CurrentZoneScene.name.Equals("End") && !m_CurrentZoneScene.name.Equals("CG"))
             {
                 //获取UI脚本
                 gamingUI = GameObject.Find("GameUI").GetComponent<GamingUI>();
                 //加载对应关卡的提示(碎片)进度
                 int level = m_currLevelIndex;
-                level = level == 1 ? level - 1 : level - 2;
+                level = level == 2 ? level - 2 : level - 3;
                 gamingUI.SettipIndexes(stageProgress[level]);
 
                 //加载非开始关卡的开始画面
