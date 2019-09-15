@@ -4,6 +4,7 @@ Shader "Unity Shaders Book/PaperEffect" {
 	Properties{
 		_MainTex("Base (RGB)", 2D) = "white" {}
 		_BlendTex("Blend (RGB)", 2D) = "white" {}
+		_BlendTex2("Blend2 (RGB)", 2D) = "white" {}
 		_Mixed("Mixed", Float) = 1
 	}
 		SubShader{
@@ -18,6 +19,7 @@ Shader "Unity Shaders Book/PaperEffect" {
 
 				sampler2D _MainTex;
 				sampler2D _BlendTex;
+				sampler2D _BlendTex2;
 				half _Mixed;
 
 				struct v2f {
@@ -38,15 +40,18 @@ Shader "Unity Shaders Book/PaperEffect" {
 				fixed4 frag(v2f i) : SV_Target {
 					fixed4 renderTex = tex2D(_MainTex, i.uv);
 					fixed4 blendTex = tex2D(_BlendTex, i.uv);
-				// Apply brightness
-				fixed3 finalColor = renderTex.rgb * blendTex.rgb;
-				/*fixed3 finalColor = renderTex.rgb * _Mixed + blendTex.rgb * (1 - _Mixed);*/
+					fixed4 blendTex2 = tex2D(_BlendTex2, i.uv);
+					// Apply brightness
+					//fixed3 finalColor = renderTex.rgb * blendTex.rgb;
+					fixed3 tempColor = renderTex.rgb * blendTex.rgb;
+					fixed3 finalColor = tempColor.rgb * _Mixed + blendTex2.rgb * (1 - _Mixed);
 
-				return fixed4(finalColor, renderTex.a);
+
+					return fixed4(finalColor, renderTex.a);
+				}
+
+				ENDCG
 			}
-
-			ENDCG
-		}
 		}
 
 			Fallback Off

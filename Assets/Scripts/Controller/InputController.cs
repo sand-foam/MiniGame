@@ -29,8 +29,10 @@ namespace MiniGame
         public void OnUpdate()
         {
             //此处PC端输入在Android端会干扰输入，导出Android的时候需要注释掉
-            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
-            {
+            
+            //if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+                if (Input.GetMouseButtonDown(0))
+                {
                 GameController.Instance.HideGamingUI();
                 //先判断是否触摸某个机关
                 Vector2 touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
