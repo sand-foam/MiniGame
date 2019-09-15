@@ -11,7 +11,7 @@ Shader "ApcShader/PostEffect/RadialBlurShader"
 	}
 
 		CGINCLUDE
-		uniform sampler2D _MainTex;
+	uniform sampler2D _MainTex;
 	uniform sampler2D _BlurTex;
 	uniform float _BlurFactor;	//模糊强度（0-0.05）
 	uniform float _LerpFactor;  //插值的强度（0-1）
