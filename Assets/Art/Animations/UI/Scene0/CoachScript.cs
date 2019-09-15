@@ -91,11 +91,18 @@ namespace MiniGame
             {
                 
                 m_FishAnimator.SetBool("RotationBool", true);
+                //m_timer = 0;
+            }
+            if (curTime - lastTime >= 21.5)
+            {
+                m_CoachAnimator.SetBool("ScaleBool", true);
                 m_BallAnimator.SetBool("RotationBool", true);
                 //m_timer = 0;
             }
 
-            if (curTime - lastTime >= 21.5&&Three==true)
+
+
+            if (curTime - lastTime >= 26&&Three==true)
             {
                 m_FishAnimator.SetBool("DisappearBool", true);
                 m_BallAnimator.SetBool("DisappearBool", true);
@@ -104,7 +111,17 @@ namespace MiniGame
                 //m_timer = 0;
             }
 
-            if (curTime - lastTime >= 22.5)
+            if (curTime - lastTime >= 27)
+            {
+                m_CoachAnimator.SetBool("SetBool", true);
+                //m_timer = 0;
+            }
+            if (curTime - lastTime >= 30)
+            {
+                m_CoachAnimator.SetBool("TipBool", true);
+                //m_timer = 0;
+            }
+            if (curTime - lastTime >= 33)
             {
                 m_CoachAnimator.SetBool("EndBool", true);
                 //m_timer = 0;
