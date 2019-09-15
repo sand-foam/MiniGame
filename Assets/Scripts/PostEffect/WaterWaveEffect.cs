@@ -46,15 +46,15 @@ public class WaterWaveEffect : PostEffectBase
         }
         else if(wave)
         {
-            startPos = new Vector4(0.7681976000f, 0.1879815000f, 0.0000000000f, 0.0000000000f);
             waveStartTime = Time.time;
             wave = false;
         }
 
     }
 
-    public void SetWave()
+    public void SetWave(Vector4 wavePos)
     {
+        startPos = wavePos;
         wave = true;
     }
 }

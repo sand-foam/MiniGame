@@ -246,6 +246,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2772100774109810852}
   - component: {fileID: 2772100774109810853}
+  - component: {fileID: 7341000021531639226}
+  - component: {fileID: 2482785078040205411}
   m_Layer: 10
   m_Name: Sun
   m_TagString: Untagged
@@ -315,6 +317,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &7341000021531639226
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2772100774109810779}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.2465874
+--- !u!114 &2482785078040205411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2772100774109810779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 277f9452a928ffe42aa9ee188dc7c589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_moonAndSunAudioClip: {fileID: 0}
+  m_other: {fileID: 2772100775747849770}
 --- !u!1 &2772100774200737354
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,10 +405,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2772100774554623203}
-  - component: {fileID: 2772100774554623214}
-  - component: {fileID: 2772100774554623213}
   - component: {fileID: 2772100774554623212}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: MoonAndSun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,35 +429,6 @@ Transform:
   m_Father: {fileID: 2772100775152897135}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &2772100774554623214
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2772100774554623202}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.09, y: 0.07157135}
-  m_Size: {x: 4.1125436, y: 10.618832}
-  m_Direction: 0
---- !u!114 &2772100774554623213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2772100774554623202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 277f9452a928ffe42aa9ee188dc7c589, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_moonAndSunAudioClip: {fileID: 0}
 --- !u!114 &2772100774554623212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,6 +621,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2772100775747849771}
   - component: {fileID: 2772100775747849780}
+  - component: {fileID: 5403637773013264638}
+  - component: {fileID: 4544653706903482843}
   m_Layer: 10
   m_Name: Moon
   m_TagString: Untagged
@@ -689,6 +692,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &5403637773013264638
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2772100775747849770}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.0000009536743}
+  serializedVersion: 2
+  m_Radius: 2.54
+--- !u!114 &4544653706903482843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2772100775747849770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 277f9452a928ffe42aa9ee188dc7c589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_moonAndSunAudioClip: {fileID: 0}
+  m_other: {fileID: 2772100774109810779}
 --- !u!1 &2772100775748970517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2741,15 +2774,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f463b2ea17f1e64eb6e8a3fdfdf16b6, type: 3}
---- !u!4 &9111670436900443057 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6344266803289790008, guid: 7f463b2ea17f1e64eb6e8a3fdfdf16b6,
-    type: 3}
-  m_PrefabInstance: {fileID: 2772100775269434761}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &9220093181340735732 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6452570927175949693, guid: 7f463b2ea17f1e64eb6e8a3fdfdf16b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2772100775269434761}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9111670436900443057 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6344266803289790008, guid: 7f463b2ea17f1e64eb6e8a3fdfdf16b6,
     type: 3}
   m_PrefabInstance: {fileID: 2772100775269434761}
   m_PrefabAsset: {fileID: 0}
@@ -3323,15 +3356,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00f14279ff7689141ad58c0b87ff83a6, type: 3}
---- !u!4 &5023390405897022530 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7191914363863075179, guid: 00f14279ff7689141ad58c0b87ff83a6,
-    type: 3}
-  m_PrefabInstance: {fileID: 2772100776058578217}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4192417990242436208 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2041835994484171097, guid: 00f14279ff7689141ad58c0b87ff83a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2772100776058578217}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5023390405897022530 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7191914363863075179, guid: 00f14279ff7689141ad58c0b87ff83a6,
     type: 3}
   m_PrefabInstance: {fileID: 2772100776058578217}
   m_PrefabAsset: {fileID: 0}
