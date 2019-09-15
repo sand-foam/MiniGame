@@ -233,6 +233,7 @@ namespace MiniGame
         /// 根据当前是第几关加载不同的画组预制件
         /// </summary>
         /// <param name="tipImgs">画组预制件</param>
+        /// <param name="tipWords">提示语预制件</param>
         public void SettipImgsGroup(CanvasGroup tipImgs, GameObject tipWords)
         {
             this.m_tipImgsGroup = tipImgs;
@@ -264,6 +265,7 @@ namespace MiniGame
         /// 对联考虑在这里被调用，只加载一次，这个是靠GameController对每个碎片收集只调用其一次实现
         /// </summary>
         /// <param name="index">已解谜机关编号</param>
+        /// <param name="flag">这是一个为了函数重载设置的无意义标志位</param>
         public void SettipIndexes(int index, bool flag)
         {
             Debug.Log("设置画编号" + index);
@@ -273,13 +275,14 @@ namespace MiniGame
                 ++i;
             }
             Debug.Log("开始！！！");
-            WordsShowOnlyOnce(5.0f, index);
+            WordsShowOnlyOnce(8.0f, index);
         }
 
         /// <summary>
-        /// 对联加在这里
+        /// 对联加在这里，当延时时长略微大于整个画面的延时时长，可以达到逐渐消退的感觉
         /// </summary>
         /// <param name="t">延时秒数</param>
+        /// <param name="index">提示语编号，从0开始</param>
         /// <returns></returns>
         public void WordsShowOnlyOnce(float t, int index)
         {
@@ -289,10 +292,10 @@ namespace MiniGame
         IEnumerator WordsShowTimeCoroutine(float t, int index)
         {
             Transform outTemp;
-            m_tipWordsDictionary.TryGetValue(index - 1, out outTemp);
+            m_tipWordsDictionary.TryGetValue(index, out outTemp);
             outTemp.gameObject.GetComponent<Image>().color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
             outTemp.GetChild(0).GetComponent<Image>().color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
-            Debug.Log("获取到子对联句" + outTemp.gameObject.GetComponentInChildren<Image>().name);
+            Debug.Log("获取到子对联句，第" + index + "句" + outTemp.gameObject.GetComponentInChildren<Image>().name);
             Debug.Log("提示语" + (index - 1) + "透明度变为" + outTemp.gameObject.GetComponent<Image>().color + outTemp.name);
             yield return new WaitForSeconds(t);//运行到这，暂停t秒
 

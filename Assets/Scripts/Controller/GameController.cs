@@ -492,12 +492,14 @@ namespace MiniGame
         {
             int level = m_currLevelIndex;
             level = level == 1 ? level - 1 : level - 2;
-            if (stageProgress[level] < stage)
+            Debug.Log("关卡进度为" + stageProgress[level] + "需要被更新为" + stage);
+            if (stageProgress[level] <= stage)
             {
                 stageProgress[level] = stage;
                 Debug.Log("碎片更新到" + stage);
+                //这里存在一个问题就是，在之前命名中，把机关成功从1开始编号，但提示语实现是编号从0开始算，这是之前bug的一部分原因
                 //这里调用重载的设置函数，使对联出现，只出现对应index的对联一次
-                gamingUI.SettipIndexes(stage, true);
+                gamingUI.SettipIndexes(stage - 1, true);
             }
             Debug.Log("碎片展示!!!" + stage);
             gamingUI.ShowForTime(4);
