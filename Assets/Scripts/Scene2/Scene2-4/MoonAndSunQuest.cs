@@ -37,7 +37,6 @@ namespace MiniGame
             m_flyingMagpie = GameObject.Find("FlyingMagpie");
             m_angleCounter = 0f;
             m_center = m_moonAndSun.transform.position;
-            Debug.Log(m_other.ToString());
             this.enabled = false;
         }
 
@@ -93,7 +92,7 @@ namespace MiniGame
             //    }
             //}
 
-            // PC -- one handed
+            // PC/Android -- one handed
             if (Input.GetMouseButton(0))
             {
                 Vector2 newVector = Camera.main.ScreenToWorldPoint(Input.mousePosition) - m_center;
@@ -145,18 +144,17 @@ namespace MiniGame
             // Android -- stable
             //Debug.Log("Android");
             //this.enabled = true;
-            //m_other.layer = LayerMask.NameToLayer("Ignore Mirror");
-            //Touch touch1 = Input.GetTouch(0);
+            //m_other.layer = LayerMask.NameToLayer("Ignore Mirror");            
             //if (Input.touchCount > 0)
             //{
-            //    Debug.Log("Two touches at the same time");
+            //    Touch touch1 = Input.GetTouch(0);
             //    Vector2 touchPos1;
             //    touchPos1 = Camera.main.ScreenToWorldPoint(touch1.position);
 
             //    m_oldVector = touchPos1 - (Vector2)m_center;
             //}
 
-            // PC -- one handed
+            // PC/Android -- one handed
             this.enabled = true;
             m_other.layer = LayerMask.NameToLayer("Ignore Mirror");
             m_oldVector = Camera.main.ScreenToWorldPoint(Input.mousePosition) - m_center;
