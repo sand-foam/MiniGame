@@ -961,7 +961,8 @@ MonoBehaviour:
   shader: {fileID: 0}
   paperShader: {fileID: 4800000, guid: 8a459dc4a79d7834ea15c0ac865618d7, type: 3}
   blendTex: {fileID: 2800000, guid: 67bd88197f0de05428d2589c6f2bba83, type: 3}
-  mixed: 0.458
+  blendTex2: {fileID: 0}
+  mixed: 1
 --- !u!114 &791553946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2212,6 +2213,7 @@ MonoBehaviour:
   backgroundClip: {fileID: 8300000, guid: dfc26304b48921043bf7ddc17883e576, type: 3}
   envirnmentClip: {fileID: 0}
   isInitPlayerCanMove: 1
+  isOneCharacter: 0
 --- !u!4 &1437101686
 Transform:
   m_ObjectHideFlags: 0
@@ -2728,6 +2730,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 516223509214401824, guid: 1c3f2ed407ed0ea47b632fec371276d7,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 791553942}
     - target: {fileID: 5915012518376852329, guid: 1c3f2ed407ed0ea47b632fec371276d7,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -2883,11 +2890,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 516223509214401824, guid: 1c3f2ed407ed0ea47b632fec371276d7,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 791553942}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c3f2ed407ed0ea47b632fec371276d7, type: 3}
 --- !u!1 &2117112524
@@ -3197,7 +3199,7 @@ PrefabInstance:
     - target: {fileID: 827596058746313162, guid: 5745f3156e61f7145816a40b1c0aa2e7,
         type: 3}
       propertyPath: m_currLevelIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 827596058746313160, guid: 5745f3156e61f7145816a40b1c0aa2e7,
         type: 3}

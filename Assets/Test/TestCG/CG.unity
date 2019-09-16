@@ -785,7 +785,7 @@ GameObject:
   - component: {fileID: 1810795611}
   - component: {fileID: 1810795610}
   - component: {fileID: 1810795609}
-  - component: {fileID: 1810795612}
+  - component: {fileID: 1810795613}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -858,7 +858,7 @@ Transform:
   m_Father: {fileID: 1693238694}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1810795612
+--- !u!114 &1810795613
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -867,7 +867,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1810795608}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e61865b5bc7fc564b8673f9e3b851813, type: 3}
+  m_Script: {fileID: 11500000, guid: 58f2cb68a7b720b47bac5cc3c52f69b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: f530488348366e548b7add1ba12ba273, type: 3}
@@ -1254,7 +1254,7 @@ PrefabInstance:
     - target: {fileID: 827596058746313162, guid: 5745f3156e61f7145816a40b1c0aa2e7,
         type: 3}
       propertyPath: m_currLevelIndex
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 173836838, guid: 5745f3156e61f7145816a40b1c0aa2e7, type: 3}
       propertyPath: musicAudioClip

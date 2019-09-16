@@ -492,7 +492,7 @@ namespace MiniGame
         public void UpdateStageProgress(int stage)
         {
             int level = m_currLevelIndex;
-            level = level == 1 ? level - 1 : level - 2;
+            level = level == 2 ? level - 2 : level - 3;
             if (stageProgress[level] < stage)
             {
                 stageProgress[level] = stage;
@@ -522,8 +522,6 @@ namespace MiniGame
             if (gamingUI != null)
                 gamingUI.HideShowingWindow();
         }
-
-
     }
 
 }

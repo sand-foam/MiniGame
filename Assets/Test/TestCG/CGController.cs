@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MiniGame
 {
-    public class CGBoyController : MonoBehaviour
+    public class CGController : MonoBehaviour
     {
         // Start is called before the first frame update
         void Start()
@@ -20,7 +20,8 @@ namespace MiniGame
 
         public void ShowWaveEffect()
         {
-
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<WaterTest>().enabled = true;
+            StartCoroutine("WaitToTransition");
         }
 
         IEnumerator WaitToTransition()
