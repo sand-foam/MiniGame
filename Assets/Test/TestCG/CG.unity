@@ -525,7 +525,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 500ef031d05f82b49b1f436c56e5d674, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8bd4d28973452624fb00812a5765190d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -875,7 +875,7 @@ MonoBehaviour:
   timeFactor: -30
   totalFactor: 2
   waveWidth: 1
-  waveSpeed: 0.7
+  waveSpeed: 0.3
 --- !u!1 &1945433973
 GameObject:
   m_ObjectHideFlags: 0
