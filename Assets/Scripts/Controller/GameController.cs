@@ -128,7 +128,7 @@ namespace MiniGame
                 WriteLevelProgressToFile();
             }
 
-            if (!m_CurrentZoneScene.name.Equals("Start") && !m_CurrentZoneScene.name.Equals("End"))
+            if (!m_CurrentZoneScene.name.Equals("Start") && !m_CurrentZoneScene.name.Equals("End") && !m_CurrentZoneScene.name.Equals("CG"))
             {
                 //获取UI脚本
                 gamingUI = GameObject.Find("GameUI").GetComponent<GamingUI>();
@@ -493,7 +493,7 @@ namespace MiniGame
         {
             int level = m_currLevelIndex;
             level = level == 2 ? level - 2 : level - 3;
-            if (stageProgress[level] < stage)
+            if (stageProgress[level] <= stage)
             {
                 stageProgress[level] = stage;
                 Debug.Log("碎片更新到" + stage);
