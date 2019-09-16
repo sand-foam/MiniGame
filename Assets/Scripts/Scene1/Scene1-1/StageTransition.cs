@@ -65,6 +65,7 @@ namespace MiniGame
                 //调整摄像机边界限定，要注意和摄像机动画的冲突
                 Camera.main.gameObject.GetComponent<CameraController>().UpdateBackgounrdLeft(GameObject.Find("Stage1-2-L"));
                 Camera.main.gameObject.GetComponent<CameraController>().UpdateBackgounrdRight(GameObject.Find("Stage1-2-R"));
+                Camera.main.gameObject.GetComponent<CameraController>().enabled = true;
                 Destroy(this);
             }
         }

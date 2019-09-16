@@ -130,7 +130,7 @@ public class Buttonscript : MonoBehaviour
     public void OnClickLevel_1()
     {
         AudioController.Instance.PushClip(buttonEffectClip);
-        GameController.Instance.TransitionToNewLevel("Level0");
+        GameController.Instance.TransitionToNewLevel("CG");
         //        string targetLevelName = GameController.Instance.GetLevelName(0);
         //TransitionPoint transitionPoint = GameObject.Find("TransitionStart").GetComponent<TransitionPoint>();
         //transitionPoint.newSceneName = targetLevelName;

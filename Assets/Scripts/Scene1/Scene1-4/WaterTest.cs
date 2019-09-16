@@ -36,7 +36,7 @@ public class WaterTest : PostEffectBase
 
     public void starwaterwave()
     {
-        startPos = new Vector4(0.5f, 0.2f, 0, 0);
+        startPos = new Vector4(0.5f, 0.5f, 0, 0);
         waveStartTime = Time.time;
     }
     public void OnEnable()

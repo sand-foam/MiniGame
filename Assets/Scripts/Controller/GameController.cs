@@ -59,11 +59,12 @@ namespace MiniGame
 
             //所有关卡名字(包括开始关卡)
             allLevelName.Add("Start");//0
-            allLevelName.Add("Level0");//1
-            allLevelName.Add("Level1");//2
-            allLevelName.Add("Level2");//3
-            allLevelName.Add("Level3");//4
-            allLevelName.Add("End");//5
+            allLevelName.Add("CG");//1
+            allLevelName.Add("Level0");//2
+            allLevelName.Add("Level1");//3
+            allLevelName.Add("Level2");//4
+            allLevelName.Add("Level3");//5
+            allLevelName.Add("End");//6
             //highestProgress = 1;
 
 
@@ -79,13 +80,13 @@ namespace MiniGame
         private void Start()
         {
             //关卡初始化设置
-            if (!m_CurrentZoneScene.name.Equals("Start")&& !m_CurrentZoneScene.name.Equals("End"))
+            if (!m_CurrentZoneScene.name.Equals("Start")&& !m_CurrentZoneScene.name.Equals("End") && !m_CurrentZoneScene.name.Equals("CG"))
             {
                 //获取UI脚本
                 gamingUI = GameObject.Find("GameUI").GetComponent<GamingUI>();
                 //加载对应关卡的提示(碎片)进度
                 int level = m_currLevelIndex;
-                level = level == 1 ? level - 1 : level - 2;
+                level = level == 2 ? level - 2 : level - 3;
                 gamingUI.SettipIndexes(stageProgress[level]);
 
                 //加载非开始关卡的开始画面
@@ -127,7 +128,7 @@ namespace MiniGame
                 WriteLevelProgressToFile();
             }
 
-            if (!m_CurrentZoneScene.name.Equals("Start") && !m_CurrentZoneScene.name.Equals("End"))
+            if (!m_CurrentZoneScene.name.Equals("Start") && !m_CurrentZoneScene.name.Equals("End") && !m_CurrentZoneScene.name.Equals("CG"))
             {
                 //获取UI脚本
                 gamingUI = GameObject.Find("GameUI").GetComponent<GamingUI>();
@@ -491,15 +492,13 @@ namespace MiniGame
         public void UpdateStageProgress(int stage)
         {
             int level = m_currLevelIndex;
-            level = level == 1 ? level - 1 : level - 2;
-            Debug.Log("关卡进度为" + stageProgress[level] + "需要被更新为" + stage);
+            level = level == 2 ? level - 2 : level - 3;
             if (stageProgress[level] <= stage)
             {
                 stageProgress[level] = stage;
                 Debug.Log("碎片更新到" + stage);
-                //这里存在一个问题就是，在之前命名中，把机关成功从1开始编号，但提示语实现是编号从0开始算，这是之前bug的一部分原因
                 //这里调用重载的设置函数，使对联出现，只出现对应index的对联一次
-                gamingUI.SettipIndexes(stage - 1, true);
+                gamingUI.SettipIndexes(stage, true);
             }
             Debug.Log("碎片展示!!!" + stage);
             gamingUI.ShowForTime(4);
@@ -523,8 +522,6 @@ namespace MiniGame
             if (gamingUI != null)
                 gamingUI.HideShowingWindow();
         }
-
-
     }
 
 }

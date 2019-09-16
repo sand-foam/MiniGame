@@ -969,7 +969,6 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
-  - component: {fileID: 519420033}
   - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
@@ -1060,21 +1059,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519420033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a6611a76acfdad4783be21eacb7cd78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backgroundL: {fileID: 0}
-  backgroundR: {fileID: 0}
-  followSpeed: 0.1
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1090,7 +1074,8 @@ MonoBehaviour:
   shader: {fileID: 0}
   paperShader: {fileID: 4800000, guid: 8a459dc4a79d7834ea15c0ac865618d7, type: 3}
   blendTex: {fileID: 2800000, guid: 67bd88197f0de05428d2589c6f2bba83, type: 3}
-  mixed: 0.6
+  blendTex2: {fileID: 0}
+  mixed: 1
 --- !u!1 &687145337
 GameObject:
   m_ObjectHideFlags: 0
@@ -4389,6 +4374,7 @@ MonoBehaviour:
   backgroundClip: {fileID: 8300000, guid: a41ec5f6339cd1944a49224059481a70, type: 3}
   envirnmentClip: {fileID: 0}
   isInitPlayerCanMove: 0
+  isOneCharacter: 0
 --- !u!4 &2141477658
 Transform:
   m_ObjectHideFlags: 0

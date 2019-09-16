@@ -275,7 +275,7 @@ namespace MiniGame
                 ++i;
             }
             Debug.Log("开始！！！");
-            WordsShowOnlyOnce(8.0f, index);
+            WordsShowOnlyOnce(8.0f, index - 1);
         }
 
         /// <summary>
@@ -296,7 +296,7 @@ namespace MiniGame
             outTemp.gameObject.GetComponent<Image>().color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
             outTemp.GetChild(0).GetComponent<Image>().color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
             Debug.Log("获取到子对联句，第" + index + "句" + outTemp.gameObject.GetComponentInChildren<Image>().name);
-            Debug.Log("提示语" + (index - 1) + "透明度变为" + outTemp.gameObject.GetComponent<Image>().color + outTemp.name);
+            Debug.Log("提示语" + index + "透明度变为" + outTemp.gameObject.GetComponent<Image>().color + outTemp.name);
             yield return new WaitForSeconds(t);//运行到这，暂停t秒
 
             //t秒后，继续运行下面代码

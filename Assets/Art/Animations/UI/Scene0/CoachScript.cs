@@ -33,7 +33,7 @@ namespace MiniGame
         void Update()
         {
             curTime = Time.time;
-            Debug.Log(curTime);
+            //Debug.Log(curTime);
             if (curTime-lastTime >= 1)
             {
                 m_CoachAnimator.enabled = true;
